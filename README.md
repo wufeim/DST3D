@@ -11,6 +11,8 @@ Johns Hopkins University\
 
 Please check [INSTALL.md](INSTALL.md) for installation instructions.
 
+## Quick Start
+
 ## License
 
 This project is released under the MIT license. Please see the [LICENSE](LICENSE) file for more information.

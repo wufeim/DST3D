@@ -20,6 +20,12 @@
 
 ## Dependency Setup
 
+1. Install other dependencies:
+
+    ```
+    pip install objaverse
+    ```
+
 ## Dataset Preparation
 
 1. Download the [ShapeNet Dataset (v2)](https://shapenet.org). Move/link the data to the default location (`./data/ShapeNetCore.v2`), or specify the path during rendering.
