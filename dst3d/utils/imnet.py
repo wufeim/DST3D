@@ -6,7 +6,7 @@ import requests
 import numpy as np
 import objaverse
 
-from .imnet import imnet_classes
+from .imnet_classes import imnet_classes
 
 _imnet_synset_to_idx = [x.split(' ')[0] for x in imnet_classes]
 _imnet_synset_to_class = {x.split(' ')[0]: ' '.join(x.split(' ')[1:]) for x in imnet_classes}

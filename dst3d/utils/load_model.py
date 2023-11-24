@@ -41,16 +41,15 @@ class ModelLoader:
             model_path = os.path.join(self.objaverse_path, f'{model_id}.glb')
             if not os.path.isfile(model_path):
                 wget.download(get_objaverse_url_from_uid(model_id), out=self.objaverse_path)
-            return model_path
+                print('download', model_path, os.path.isfile(model_path))
         elif self.omniobject3d_path is not None and model_id in self.omniobject3d_path_map:
             model_path = os.path.join(self.omniobject3d_path, self.omniobject3d_path_map[model_id])
-            return model_path
         elif self.toys4k_path is not None and model_id.startswith('toys4k'):
             model_id = model_id[7:]
             model_path = os.path.join(self.toys4k_path, '_'.join(model_id.split('_')[:-1]), model_id, model_id+'.blend')
-            return model_path
         else:
             raise NotImplementedError(f'No model {model_id} found')
+        return model_path
 
     def has_model(self, model_id):
         if self.shapenet_path is not None and model_id in self.shapenet_path_map:
