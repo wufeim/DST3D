@@ -49,8 +49,6 @@ def worker(params):
 
 
 def main(args):
-    os.makedirs(args.objaverse_model_dir, exist_ok=True)
-
     model_loader = ModelLoader(
         shapenet_path=args.shapenet_path,
         objaverse_path=args.objaverse_path,
