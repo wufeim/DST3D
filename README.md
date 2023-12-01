@@ -17,7 +17,7 @@ Please check [INSTALL.md](INSTALL.md) for installation instructions.
 
     ```sh
     python3 scripts/render_synthetic_data.py \
-        --data_path DST/train \
+        --data_path DST3D/train \
         --model_path /path/to/all_dst_models \
         --shapenet_path /path/to/ShapeNetCore.v2 \
         --objaverse_path /path/to/objaverse_models \
@@ -32,10 +32,19 @@ Please check [INSTALL.md](INSTALL.md) for installation instructions.
 
     ```sh
     CUDA_VISIBLE_DEVICES=0 python3 scripts/controllable_generation.py \
-    --model_name control_v11p_sd15_canny \
-    --data_path DST \
-    --data_name image_dst \
-    --synsets n02690373
+        --model_name control_v11p_sd15_canny \
+        --data_path DST3D \
+        --data_name image_dst \
+        --synsets n02690373
+    ```
+
+3. Run K-fold Consistency Filter (KCF) on the generated images. The KCF code trains a ResNet50 pose estimation model and produces a validation loss for each sample. The results are saved in a `JSON` file in `--output_dir`.
+
+    ```sh
+    CUDA_VISIBLE_DEVICES=0 python3 scripts/run_kcf_filter.py \
+        --data_path DST3D/train \
+        --category n02690373 \
+        --output_dir exp/kcf_n02690373
     ```
 
 ## License
