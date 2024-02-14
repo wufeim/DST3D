@@ -359,7 +359,7 @@ def save_images(object_file: str) -> None:
             theta, phi, camera_rotation = get_random_pose(args)
             camera_dist = get_random_dist(args)
         else:
-            theta, phi, camera_rotation = -np.pi/3, np.pi/3, 0.0
+            theta, phi, camera_rotation = -np.pi/2, np.pi/3, 0.0
             camera_dist = 1.5
 
         theta = theta + args.azimuth / 180.0 * np.pi
