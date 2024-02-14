@@ -18,13 +18,15 @@
     ./python3.10 -m pip install numpy==1.23.1 scipy
     ```
 
-## Dependency Setup
+## Python Environment
 
-1. Install other dependencies:
-
-    ```
-    pip install objaverse
-    ```
+```
+conda create -n dst3d python=3.10
+conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+pip install transformers diffusers open_clip_torch pytorch-lightning==1.5.0
+pip install objaverse wget einops omegaconf opencv-python scipy
+pip install -e .
+```
 
 ## Dataset Preparation
 
