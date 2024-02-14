@@ -66,6 +66,7 @@ class ImagePromptIterator:
         self.ptr = 0
         self.all_img_names = [x for x in os.listdir(self.src_path) if x.endswith('.png')]
         if self.num_imgs_limit != -1 and len(self.all_img_names) > self.num_imgs_limit:
+            np.random.seed(42)
             np.random.shuffle(self.all_img_names)
             self.all_img_names = self.all_img_names[:self.num_imgs_limit]
 
