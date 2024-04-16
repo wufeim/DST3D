@@ -5,7 +5,7 @@ Official implementation of **DST3D**, from the following paper:
 [Adding 3D Geometry Control to Diffusion Models](https://arxiv.org/abs/2306.08103). ICLR 2024 (Spotlight).\
 [Wufei Ma\*](https://wufeim.github.io), [Qihao Liu\*](https://qihao067.github.io), [Jiahao Wang\*](https://jiahaoplus.github.io/), [Angtian Wang](https://github.com/Angtian), [Xiaoding Yuan](https://www.xiaodingyuan.com), [Yi Zhang](https://edz-o.github.io/), [Zihao Xiao](https://scholar.google.com/citations?user=ucb6UssAAAAJ&hl), [Beijia Lu](https://github.com/Beijia11), [Ruxiao Duan](https://scholar.google.com/citations?user=aG-fi1cAAAAJ&hl=en), [Yongrui Qi](https://github.com/Auroraaa-Qi), [Adam Kortylewski](https://gvrl.mpi-inf.mpg.de/), [Yaoyao Liu](https://www.cs.jhu.edu/~yyliu/), [Alan Yuille](https://www.cs.jhu.edu/~ayuille/)\
 Johns Hopkins University, University of Freiburg, Max Planck Institute for Informatics\
-[[`arXiv`](https://arxiv.org/abs/2306.08103)]
+[[`arXiv`](https://arxiv.org/abs/2306.08103)][[`iclr.cc`]][https://iclr.cc/virtual/2024/poster/18443]
 
 ## Installation
 
