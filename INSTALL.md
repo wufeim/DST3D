@@ -28,6 +28,14 @@ pip install objaverse wget einops omegaconf opencv-python scipy
 pip install -e .
 ```
 
+## Download ControlNet Checkpoints
+
+```sh
+cd models
+wget https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.ckpt
+wget https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth
+```
+
 ## Dataset Preparation
 
 1. Download the [ShapeNet Dataset (v2)](https://shapenet.org). Move/link the data to the default location (`./data/ShapeNetCore.v2`), or specify the path during rendering.
