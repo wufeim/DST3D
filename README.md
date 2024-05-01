@@ -72,10 +72,12 @@ This project is released under the MIT license. Please see the [LICENSE](LICENSE
 If you find this repository helpful, please consider citing:
 
 ```
-@article{ma2023adding,
-  title={Adding 3D Geometry Control to Diffusion Models},
-  author={Ma, Wufei and Liu, Qihao and Wang, Jiahao and Wang, Angtian and Liu, Yaoyao and Kortylewski, Adam and Yuille, Alan},
-  journal={arXiv preprint arXiv:2306.08103},
-  year={2023}
+@inproceedings{
+ma2024generating,
+title={Generating Images with 3D Annotations Using Diffusion Models},
+author={Wufei Ma and Qihao Liu and Jiahao Wang and Angtian Wang and Xiaoding Yuan and Yi Zhang and Zihao Xiao and Guofeng Zhang and Beijia Lu and Ruxiao Duan and Yongrui Qi and Adam Kortylewski and Yaoyao Liu and Alan Yuille},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=XlkN11Xj6J}
 }
 ```
