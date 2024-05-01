@@ -11,10 +11,11 @@ Johns Hopkins University, University of Freiburg, Max Planck Institute for Infor
 
 We present 3D Diffusion Style Transfer (3D-DST), a simple and effective approach to generate images with 3D annotations using diffusion models. Our method exploits ControlNet, which extends diffusion models by using visual prompts in addition to text prompts. We render 3D CAD models from a variety of poses and viewing directions, compute the edge maps of the rendered images, and use these edge maps as visual prompts to generate realistic images. With explicit 3D geometry control, we can easily change the 3D structures of the objects in the generated images and obtain ground-truth 3D annotations automatically. Experiments on image classification, 3D pose estimation, and 3D object detection show that with 3D-DST data we can effectively improve the models' performance in both in-distribution and out-of-ditribution settings.
 
-In this repo, we provide code to reproduce our data generation pipeline. Furthermore, we release the following data:
+Besides code to reproduce our data generation pipeline, we also release the following data to support other research projects in the community:
 
 1. **Aligned CAD models for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-models`](https://huggingface.co/datasets/ccvl/3D-DST-models).
-2. **3D-DST data for all 1000 classes in ImageNet-1k.** *(Coming soon...)*
+2. **LLM-generated captions for all 1000 classes in ImageNet-1k.**
+3. **3D-DST data for all 1000 classes in ImageNet-1k.** *(Coming soon...)*
 
 ## Installation
 
