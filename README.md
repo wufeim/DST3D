@@ -2,10 +2,19 @@
 
 Official implementation of **DST3D**, from the following paper:
 
-[Adding 3D Geometry Control to Diffusion Models](https://arxiv.org/abs/2306.08103). ICLR 2024 (Spotlight).\
+[Generating Images with 3D Annotations Using Diffusion Models](https://arxiv.org/abs/2306.08103). ICLR 2024 (Spotlight).\
 [Wufei Ma\*](https://wufeim.github.io), [Qihao Liu\*](https://qihao067.github.io), [Jiahao Wang\*](https://jiahaoplus.github.io/), [Angtian Wang](https://github.com/Angtian), [Xiaoding Yuan](https://www.xiaodingyuan.com), [Yi Zhang](https://edz-o.github.io/), [Zihao Xiao](https://scholar.google.com/citations?user=ucb6UssAAAAJ&hl), [Beijia Lu](https://github.com/Beijia11), [Ruxiao Duan](https://scholar.google.com/citations?user=aG-fi1cAAAAJ&hl=en), [Yongrui Qi](https://github.com/Auroraaa-Qi), [Adam Kortylewski](https://gvrl.mpi-inf.mpg.de/), [Yaoyao Liu](https://www.cs.jhu.edu/~yyliu/), [Alan Yuille](https://www.cs.jhu.edu/~ayuille/)\
 Johns Hopkins University, University of Freiburg, Max Planck Institute for Informatics\
-[[`arXiv`](https://arxiv.org/abs/2306.08103)] [[`iclr.cc`](https://iclr.cc/virtual/2024/poster/18443)]
+[[`Project Page`](https://ccvl.jhu.edu/3D-DST/)\] [[`arXiv`](https://arxiv.org/abs/2306.08103)] [[`iclr.cc`](https://iclr.cc/virtual/2024/poster/18443)]
+
+## Overview
+
+We present 3D Diffusion Style Transfer (3D-DST), a simple and effective approach to generate images with 3D annotations using diffusion models. Our method exploits ControlNet, which extends diffusion models by using visual prompts in addition to text prompts. We render 3D CAD models from a variety of poses and viewing directions, compute the edge maps of the rendered images, and use these edge maps as visual prompts to generate realistic images. With explicit 3D geometry control, we can easily change the 3D structures of the objects in the generated images and obtain ground-truth 3D annotations automatically. Experiments on image classification, 3D pose estimation, and 3D object detection show that with 3D-DST data we can effectively improve the models' performance in both in-distribution and out-of-ditribution settings.
+
+In this repo, we provide code to reproduce our data generation pipeline. Furthermore, we release the following data:
+
+1. **Aligned CAD models for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-models`](https://huggingface.co/datasets/ccvl/3D-DST-models).
+2. **3D-DST data for all 1000 classes in ImageNet-1k.** *(Coming soon...)*
 
 ## Installation
 
