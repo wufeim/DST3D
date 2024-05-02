@@ -78,8 +78,7 @@ This project is released under the MIT license. Please see the [LICENSE](LICENSE
 If you find this repository helpful, please consider citing:
 
 ```
-@inproceedings{
-ma2024generating,
+@inproceedings{ma2024generating,
 title={Generating Images with 3D Annotations Using Diffusion Models},
 author={Wufei Ma and Qihao Liu and Jiahao Wang and Angtian Wang and Xiaoding Yuan and Yi Zhang and Zihao Xiao and Guofeng Zhang and Beijia Lu and Ruxiao Duan and Yongrui Qi and Adam Kortylewski and Yaoyao Liu and Alan Yuille},
 booktitle={The Twelfth International Conference on Learning Representations},
