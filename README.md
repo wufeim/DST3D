@@ -18,7 +18,7 @@ We present 3D Diffusion Style Transfer (3D-DST), a simple and effective approach
 Besides code to reproduce our data generation pipeline, we also release the following data to support other research projects in the community:
 
 1. **Aligned CAD models for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-models`](https://huggingface.co/datasets/ccvl/3D-DST-models).
-2. **LLM-generated captions for all 1000 classes in ImageNet-1k.**
+2. **LLM-generated captions for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-captions`](https://huggingface.co/datasets/ccvl/3D-DST-captions)
 3. **3D-DST data for all 1000 classes in ImageNet-1k.** *(Coming soon...)*
 
 ## Installation
