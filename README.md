@@ -19,7 +19,7 @@ Besides code to reproduce our data generation pipeline, we also release the foll
 
 1. **Aligned CAD models for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-models`](https://huggingface.co/datasets/ccvl/3D-DST-models).
 2. **LLM-generated captions for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-captions`](https://huggingface.co/datasets/ccvl/3D-DST-captions).
-3. **3D-DST data for all 1000 classes in ImageNet-1k.** *(Coming soon...)*
+3. **3D-DST data for all 1000 classes in ImageNet-1k.** See [`ccvl/3D-DST-data`](https://huggingface.co/datasets/ccvl/3D-DST-data).
 
 ## Installation
 
@@ -61,13 +61,23 @@ Please check [INSTALL.md](INSTALL.md) for installation instructions.
         --output_dir exp/kcf_n02690373
     ```
 
-<!--
-## TODO
+## Released 3D-DST Data
 
-- [ ] 3D-DST Dataset for image classification.
-- [ ] 3D-DST Dataset for 3D pose estimation.
-- [ ] Diverse prompt generation.
--->
+We release our generated 3D-DST data for all 1000 classes in ImageNet-1k [here](https://huggingface.co/datasets/ccvl/3D-DST-data). We also provide the [DeiT-small](https://github.com/facebookresearch/deit/blob/main/README_deit.md) models trained on our 3D-DST data.
+
+**Image Classification on ImageNet-200.**
+
+| model | data | acc@1 | url |
+| --- | --- | --- | --- |
+| DeiT-small | baseline | 81.5 | |
+| DeiT-small | with 3D-DST | 84.8 | [checkpoint & log](https://drive.google.com/file/d/1bFPgPXOssT7SVAce31tNESMpMImkA0MR/view?usp=sharing) |
+
+**Image Classification on ImageNet-1k.** We provide baseline results on ImageNet-1k with 3D-DST pretraining.
+
+| model | data | acc@1 |
+| --- | --- | --- |
+| DeiT-small | baseline | 80.1 |
+| DeiT-small | with 3D-DST | 81.1 |
 
 ## License
 
