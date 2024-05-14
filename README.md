@@ -69,7 +69,7 @@ We release our generated 3D-DST data for all 1000 classes in ImageNet-1k [here](
 
 | model | data | acc@1 | url |
 | --- | --- | --- | --- |
-| DeiT-small | baseline | 81.5 | |
+| DeiT-small | baseline | 81.5 | [checkpoint & log](https://drive.google.com/file/d/12RQpkuWunUeCoI4nzoWuhgxvekn2eNl0/view?usp=sharing) |
 | DeiT-small | with 3D-DST | 84.8 | [checkpoint & log](https://drive.google.com/file/d/1bFPgPXOssT7SVAce31tNESMpMImkA0MR/view?usp=sharing) |
 
 **Image Classification on ImageNet-1k.** We provide baseline results on ImageNet-1k with 3D-DST pretraining.
