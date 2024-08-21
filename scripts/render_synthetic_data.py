@@ -60,7 +60,7 @@ def main(args):
     model_data = {}
     for row in raw_model_data:
         if row[0] not in model_data:
-            model_data[row[0]] = {}
+            model_data[row[0]] = []
         model_data[row[0]].append(row[1:])
 
     if args.synsets is None or len(args.synsets) == 0:
