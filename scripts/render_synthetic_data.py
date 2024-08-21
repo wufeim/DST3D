@@ -14,7 +14,7 @@ from dst3d.utils import ModelLoader
 
 def get_args_parser():
     parser = argparse.ArgumentParser(description='Render images with Blender', add_help=False)
-    parser.add_argument('--model_path', type=str, default='DST/Models')
+    parser.add_argument('--model_path', type=str, default='/path/to/3d-dst-models.csv')
     parser.add_argument('--data_path', type=str, default='DST/train')
     parser.add_argument('--synsets', type=str, default=[], nargs='+')
     parser.add_argument('--workers', type=int, default=8)
@@ -55,24 +55,20 @@ def main(args):
         omniobject3d_path=args.omniobject3d_path,
         toys4k_path=args.toys4k_path)
 
-    assert os.path.isdir(args.model_path) or args.model_path.endswith('.csv'), \
-        '--model_path should be a CSV file or a directory containing CSV files'
-    if os.path.isdir(args.model_path):
-        if len(args.synsets) == 0:
-            all_model_csv_fnames = [
-                os.path.join(args.model_path, x) for x in os.listdir(args.model_path)
-                if x.endswith('.csv')]
-        else:
-            all_model_csv_fnames = [
-                os.path.join(args.model_path, x+'.csv') for x in args.synsets
-                if os.path.isfile(os.path.join(args.model_path, x+'.csv'))]
-    else:
-        all_model_csv_fnames = [args.model_path]
+    assert args.model_path.endswith('.csv'), '--model_path should specify a CSV file'
+    raw_model_data = pd.read_csv(args.model_path).values.tolist()
+    model_data = {}
+    for row in raw_model_data:
+        if row[0] not in model_data:
+            model_data[row[0]] = {}
+        model_data[row[0]].append(row[1:])
+
+    if args.synsets is None or len(args.synsets) == 0:
+        args.synsets = sorted(list(model_data.keys()))
 
     jobs = []
-    for model_csv_fname in all_model_csv_fnames:
-        csv_data = pd.read_csv(model_csv_fname)
-        models = csv_data.values.tolist()
+    for synset in args.synsets:
+        models = model_data[synset]
 
         n_cad_models = len(models)
         n_sample = [args.num_samples // n_cad_models] * n_cad_models
@@ -84,11 +80,11 @@ def main(args):
             model_id, distance, azimuth, elevation, strength, sampling = m
 
             out_path = os.path.join(
-                args.data_path, os.path.basename(model_csv_fname)[:-4], model_id, 'image_render')
+                args.data_path, synset, model_id, 'image_render')
             anno_path = os.path.join(
-                args.data_path, os.path.basename(model_csv_fname)[:-4], model_id, 'annotation')
+                args.data_path, synset, model_id, 'annotation')
             depth_path = os.path.join(
-                args.data_path, os.path.basename(model_csv_fname)[:-4], model_id, 'depth')
+                args.data_path, synset, model_id, 'depth')
 
             model_path = model_loader.load_model(model_id)
             jobs.append((model_path, out_path, anno_path, depth_path, distance, azimuth, elevation, sampling, strength, n_sample_model, args))
