@@ -65,27 +65,17 @@ class MultiControlNetCannyDepthSD3(BaseModel):
     def forward(self, image=None, visual_prompt=None, prompt=None, negative_prompt=None, strength=None):
         assert prompt is not None and negative_prompt is not None
         assert image is not None or visual_prompt is not None
+        assert len(image) == 1, "Batch size must be 1 for multicontrolnet"
 
         if strength is None:
             strength = self.controlnet_conditioning_scale
 
         if visual_prompt is None:
-            canny_conditions = []
-            depth_conditions = []
-            
-            for im in image:
-                canny_condition = self.get_condition(im).resize((1024, 1024))
-                canny_conditions.append(canny_condition)
-                
-                depth_condition = self.get_depth(im).resize((1024, 1024))
-                depth_conditions.append(depth_condition)
-            
-            if len(image) == 1:
-                visual_prompt = [canny_conditions[0], depth_conditions[0]]
-            else:
-                visual_prompt = [canny_conditions, depth_conditions]
+            canny_conditions = [self.get_condition(im).reisze((1024, 1024)) for im in image]
+            depth_conditions = [self.get_depth(im).resize((1024, 1024)) for im in image]
+            visual_prompt = [canny_conditions[0], depth_conditions[0]]
         
         if isinstance(strength, (int, float)):
-            strength = [strength, 0.1 * strength]
+            strength = [strength, strength]
 
         return self.pipe(prompt, control_image=visual_prompt, negative_prompt=negative_prompt, controlnet_conditioning_scale=strength).images

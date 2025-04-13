@@ -9,7 +9,7 @@ from .base_model import BaseModel
 
 
 class ControlNetCannySD3(BaseModel):
-    def __init__(self, model_name='InstantX/SD3-Controlnet-Canny', canny_lower=100, canny_upper=200, controlnet_conditioning_scale=1.0, device='cuda', **kwargs):
+    def __init__(self, model_name='InstantX/SD3-Controlnet-Canny', canny_lower=100, canny_upper=200, controlnet_conditioning_scale=1.0, device='cpu', **kwargs):
         super().__init__(model_name, device)
         self.canny_lower = canny_lower
         self.canny_upper = canny_upper
