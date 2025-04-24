@@ -43,6 +43,6 @@ class ControlNetCannySD3(BaseModel):
 
         print(len(image))
         if visual_prompt is None:
-            visual_prompt = [self.get_condition(im) for im in image]
+            visual_prompt = [self.get_condition(im).resize((1024, 1024)) for im in image]
 
         return self.pipe(prompt, negative_prompt=negative_prompt, control_image=visual_prompt, controlnet_conditioning_scale=strength).images
