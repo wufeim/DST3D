@@ -29,7 +29,6 @@ class MultiControlNetCannyDepthSD3(BaseModel):
         self.pipe = StableDiffusion3ControlNetPipeline.from_pretrained(
             "stabilityai/stable-diffusion-3-medium-diffusers", controlnet=controlnets, torch_dtype=torch.float16
         )
-        self.pipe.scheduler = UniPCMultistepScheduler.from_config(self.pipe.scheduler.config)
         self.pipe.enable_model_cpu_offload()
 
 
