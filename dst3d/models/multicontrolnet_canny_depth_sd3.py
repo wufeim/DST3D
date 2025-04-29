@@ -8,7 +8,6 @@ from transformers import DPTImageProcessor, DPTForDepthEstimation
 
 from .base_model import BaseModel
 
-# Must use batch_size == 1
 class MultiControlNetCannyDepthSD3(BaseModel):
     def __init__(self, model_name='multicontrolnet-canny-depth-sd3', canny_lower=100, canny_upper=200, controlnet_conditioning_scale=1.0, device='cpu', **kwargs):
         super().__init__(model_name, device)
@@ -64,7 +63,6 @@ class MultiControlNetCannyDepthSD3(BaseModel):
     def forward(self, image=None, visual_prompt=None, prompt=None, negative_prompt=None, strength=None):
         assert prompt is not None and negative_prompt is not None
         assert image is not None or visual_prompt is not None
-        assert len(image) == 1, "Batch size must be 1 for multicontrolnet"
 
         if strength is None:
             strength = self.controlnet_conditioning_scale
@@ -72,7 +70,11 @@ class MultiControlNetCannyDepthSD3(BaseModel):
         if visual_prompt is None:
             canny_conditions = [self.get_condition(im).reisze((1024, 1024)) for im in image]
             depth_conditions = [self.get_depth(im).resize((1024, 1024)) for im in image]
-            visual_prompt = [canny_conditions[0], depth_conditions[0]]
+
+            if len(image) == 1:
+                visual_prompt = [canny_conditions[0], depth_conditions[0]]
+            else:
+                visual_prompt = [canny_conditions, depth_conditions]
         
         if isinstance(strength, (int, float)):
             strength = [strength, strength]
